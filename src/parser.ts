@@ -200,6 +200,8 @@ export class DataDictCSVParser {
     const rowsToProcess = rows.slice(1);
 
     for (const [rowIndex, row] of rowsToProcess.entries()) {
+      if (row.every((cell) => String(cell ?? "").trim() === "")) continue;
+
       const normalizedRow = row.length < headerRow.length ? [...row, ...Array(headerRow.length - row.length).fill("")] : row;
       if (row.length !== headerRow.length) {
         this.diagnostics.push({

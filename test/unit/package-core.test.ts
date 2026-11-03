@@ -184,3 +184,19 @@ test("interleaved form rows produce a diagnostic with the file and row numbers",
     && diagnostic.file === "interleaved.csv" && diagnostic.rowNumber === 4
     && diagnostic.message.includes("row 2") && diagnostic.message.includes("row 4")));
 });
+
+test("blank rows are silent, but a nonempty row missing its eighteenth cell is diagnosed", () => {
+  const headers = (Papa.parse<string[]>(csv).data as string[][])[0];
+  const row = ["q", "demo", "", "text", "Question", ...Array(headers.length - 5).fill("")];
+  const parser = new DataDictCSVParser();
+
+  const forms = parser.readFormsFromCSV(`${Papa.unparse([headers, row])}\r\n`);
+  assert.equal(forms[0].sections[0].questions.length, 1);
+  assert.deepEqual(parser.diagnostics, []);
+
+  parser.readFormsFromCSV(`${Papa.unparse([headers, row])}\r\n  ,  `);
+  assert.deepEqual(parser.diagnostics, []);
+
+  parser.readFormsFromCSV(Papa.unparse([headers, row.slice(0, -1)]));
+  assert.deepEqual(parser.diagnostics.filter((diagnostic) => diagnostic.kind === "row-length-mismatch").map((diagnostic) => diagnostic.rowNumber), [2]);
+});
