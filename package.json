@@ -1,0 +1,64 @@
+{
+  "name": "@frankkramer-lab/redcap-toolkit",
+  "version": "1.0.1",
+  "description": "Framework-agnostic TypeScript toolkit for parsing, validating, and round-tripping REDCap Data Dictionary CSV files across one or more questionnaires/instruments. Unaffiliated third-party project; REDCap is a registered trademark of Vanderbilt University.",
+  "type": "commonjs",
+  "main": "dist/src/index.js",
+  "types": "dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "default": "./dist/src/index.js"
+    }
+  },
+  "files": [
+    "dist/src"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "test": "npm run test:unit",
+    "test:unit": "tsc && TEST_FILES=$(find dist/test -name '*.test.js' -type f | sort) && if [ -n \"$TEST_FILES\" ]; then node --test $TEST_FILES; else echo 'No unit tests to run'; fi",
+    "evaluate": "npm run build && node --test dist/evaluation/evaluate.test.js",
+    "evaluate_test": "node --test dist/evaluation/evaluate.test.js",
+    "roundtrip_diff": "node dist/test/roundtrip_diff.js",
+    "check:roundtrip": "node dist/evaluation/check_roundtrip_consistency.js",
+    "precision": "node dist/test/precision.js",
+    "precision_report": "node dist/test/precision_report.js",
+    "eval:precision": "npm run build && node dist/test/precision.js",
+    "eval:precision:report": "npm run build && node dist/test/precision_report.js",
+    "eval:roundtrip": "npm run build && node dist/test/roundtrip_diff.js",
+    "eval:all": "node -e \"const { execSync } = require('node:child_process'); const pkg = require('./package.json'); const commit = execSync('git rev-parse HEAD', { cwd: process.cwd(), encoding: 'utf8' }).trim(); const dirty = execSync('git status --porcelain', { cwd: process.cwd(), encoding: 'utf8' }).trim(); console.log('Git commit: ' + commit); console.log('Package version: ' + pkg.version); console.log('Published npm version must equal package.json version before the numbers are used in the paper.'); if (dirty && process.env.ALLOW_DIRTY !== '1') { console.error('Working tree is dirty; re-run with ALLOW_DIRTY=1 to mark reports dirty.'); process.exit(1); }\" && npm run build && npm run evaluate_test && npm run roundtrip_diff && npm run check:roundtrip && npm run precision && npm run precision_report",
+    "test:quick": "tsx --test test/**/*.test.ts",
+    "example": "tsx examples/basic-usage.ts"
+  },
+  "keywords": [
+    "redcap",
+    "data-dictionary",
+    "csv",
+    "clinical-research",
+    "questionnaire",
+    "typescript"
+  ],
+  "author": "Florian J. Auer",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/frankkramer-lab/redcap-toolkit.git"
+  },
+  "homepage": "https://www.uni-augsburg.de/en/fakultaet/fai/informatik/prof/misit/",
+  "bugs": {
+    "url": "https://github.com/frankkramer-lab/redcap-toolkit/issues"
+  },
+  "license": "AGPL-3.0-or-later",
+  "engines": {
+    "node": ">=18"
+  },
+  "dependencies": {
+    "papaparse": "^5.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^18",
+    "@types/papaparse": "^5.5.2",
+    "tsx": "^4.23.1",
+    "typescript": "<6.1.0"
+  }
+}

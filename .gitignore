@@ -1,0 +1,57 @@
+*.tsbuildinfo
+
+### Angular ###
+## Angular ##
+# compiled output
+dist/
+tmp/
+*.tgz
+app/**/*.js
+app/**/*.js.map
+
+# dependencies
+node_modules/
+bower_components/
+
+# misc
+.sass-cache/
+connect.lock/
+coverage/
+libpeerconnection.log/
+npm-debug.log
+testem.log
+typings/
+.angular/
+
+# e2e
+e2e/*.js
+e2e/*.map
+
+# System Files
+.DS_Store/
+
+# Test files for interactinve testing
+/resources/real_data
+
+# Public data dictionaries downloaded for round-trip tests
+/resources/NIEHS/
+/resources/PhenX/
+/resources/RareLink/
+/resources/SpyCATS/
+
+# Local profiling artifacts
+/.tmp-prof/
+
+# Created by https://www.toptal.com/developers/gitignore/api/webstorm+all
+# Edit at https://www.toptal.com/developers/gitignore?templates=webstorm+all
+
+### WebStorm+all Patch ###
+# Ignore everything but code style settings and run configurations
+# that are supposed to be shared within teams.
+
+.idea/*
+
+!.idea/codeStyles
+!.idea/runConfigurations
+
+# End of https://www.toptal.com/developers/gitignore/api/webstorm+all
