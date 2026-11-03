@@ -211,7 +211,7 @@ ${headerResolutionNotes || "_No per-file header notes._"}
 
 - No import of the written CSV into a REDCap instance; REDCap compatibility of the output is not checked.
 - No comparison with other tools.
-- Validator accuracy was not manually verified.
+- Reports of the two heuristic categories (dangling references, possible stale choice literals) were reviewed manually outside this pipeline; the review itself is not part of this report.
 - Only public CSV files plus the locally authored test dictionary were evaluated.
 - Runtime figures come from a machine without targeted GC control.
 - Round-trip checks consistency within the package and not substantive correctness against REDCap.
