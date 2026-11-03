@@ -1,5 +1,5 @@
 {
-  "commitHash": "660abb2f5d7c1f18bdb767f3f84c7cd8ebb9dcaf",
+  "commitHash": "84e4b39d992522ff2cd7946652cf6f6fb55a2b40",
   "allowList": [
     "equal_after_trim",
     "line_breaks",
@@ -21,7 +21,7 @@
       "line_breaks",
       "choice_spacing"
     ],
-    "commitHash": "660abb2f5d7c1f18bdb767f3f84c7cd8ebb9dcaf",
+    "commitHash": "84e4b39d992522ff2cd7946652cf6f6fb55a2b40",
     "packageVersion": "1.0.1",
     "gitDirty": true,
     "environment": {
