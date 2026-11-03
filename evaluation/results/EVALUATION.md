@@ -2,25 +2,19 @@
 
 ## 1. Runtime environment and data basis
 
-- Runtime: 2026-11-03T21:50:12.392Z
+- Runtime: 2026-11-03T21:50:53.864Z
 - Container: Docker container; runtime numbers here are not comparable with earlier host runs.
 - Node version: v18.17.0
 - Platform: linux / 6.8.0-138-generic
 - CPU: 12th Gen Intel(R) Core(TM) i7-1260P (16 cores)
 - Memory: 31.06 GB
 - Package version: 1.0.1
-- Git commit: fd9bfb59cb5b71c52ccf58af4e995ebc48f6ba34
+- Git commit: 7bec7055c72f3afe645101065cf3dc1d4aee6786
 - papaparse version: 5.7.0
 - EVAL_RUNS: 5
 - Download script: resources/DATA.md
-- Git status: M evaluation/results/EVALUATION.md
- M evaluation/results/PRECISION.md
- M evaluation/results/ROUNDTRIP_DIFF.md
- M evaluation/results/evaluation.json
- M evaluation/results/precision_metadata.json
- M evaluation/results/roundtrip_diff.json
- M package.json
-- Git dirty: yes
+- Git status: clean
+- Git dirty: no
 
 ### Expected and observed file counts
 
@@ -38,7 +32,7 @@
 | --------------------------------------- | ---------------------------------------- |
 | Total files                             | 992                                      |
 | Successfully parsed                     | 992                                      |
-| Git commit                              | fd9bfb59cb5b71c52ccf58af4e995ebc48f6ba34 |
+| Git commit                              | 7bec7055c72f3afe645101065cf3dc1d4aee6786 |
 | Package version                         | 1.0.1                                    |
 | Oracle row count matches                | yes                                      |
 | Oracle form count matches               | yes                                      |
@@ -66,23 +60,23 @@
 
 | Group     | Files | Expected | Successfully parsed | Validation issues | Median runtime |
 | --------- | ----- | -------- | ------------------- | ----------------- | -------------- |
-| NIEHS     | 4     | 4        | 4                   | 0                 | 9.28 ms        |
-| PhenX     | 985   | 985      | 985                 | 389               | 0.38 ms        |
+| NIEHS     | 4     | 4        | 4                   | 0                 | 10.16 ms       |
+| PhenX     | 985   | 985      | 985                 | 389               | 0.39 ms        |
 | RareLink  | 1     | 1        | 1                   | 0                 | 2.93 ms        |
-| SpyCATS   | 1     | 1        | 1                   | 0                 | 218.84 ms      |
-| test_data | 1     | 1        | 1                   | 0                 | 1.62 ms        |
+| SpyCATS   | 1     | 1        | 1                   | 0                 | 223.23 ms      |
+| test_data | 1     | 1        | 1                   | 0                 | 1.76 ms        |
 
 ## 5. Individual files except PhenX
 
 | File                                                                                         | Forms | Questions | Validation issues | Issue categories | Median total runtime | Round-trip model | Original → export (string) | Original → export (cells) | Export → re-read → export (string) | Export → re-read → export (cells) |
 | -------------------------------------------------------------------------------------------- | ----- | --------- | ----------------- | ---------------- | -------------------- | ---------------- | -------------------------- | ------------------------- | ---------------------------------- | --------------------------------- |
-| resources/NIEHS/COVID-19_Pediatric_Research_2022-03-04.csv                                   | 23    | 1684      | 0                 | -                | 43.96 ms             | equal            | different                  | equal                     | equal                              | equal                             |
-| resources/NIEHS/COVID-19_Studies_Including_Pregnant_Participants_2023-11-15.csv              | 13    | 311       | 0                 | -                | 7.73 ms              | equal            | different                  | equal                     | equal                              | equal                             |
-| resources/NIEHS/Post-Acute-Sequelae_of_SARS-CoV-2_in_Pregnancy_and_Postpartum_2023-11-15.csv | 8     | 460       | 0                 | -                | 10.84 ms             | equal            | different                  | equal                     | equal                              | equal                             |
-| resources/NIEHS/RADx_Common_Data_Elements_2022-03-02.csv                                     | 1     | 48        | 0                 | -                | 1.06 ms              | equal            | different                  | equal                     | equal                              | equal                             |
+| resources/NIEHS/COVID-19_Pediatric_Research_2022-03-04.csv                                   | 23    | 1684      | 0                 | -                | 52.23 ms             | equal            | different                  | equal                     | equal                              | equal                             |
+| resources/NIEHS/COVID-19_Studies_Including_Pregnant_Participants_2023-11-15.csv              | 13    | 311       | 0                 | -                | 8.21 ms              | equal            | different                  | equal                     | equal                              | equal                             |
+| resources/NIEHS/Post-Acute-Sequelae_of_SARS-CoV-2_in_Pregnancy_and_Postpartum_2023-11-15.csv | 8     | 460       | 0                 | -                | 12.11 ms             | equal            | different                  | equal                     | equal                              | equal                             |
+| resources/NIEHS/RADx_Common_Data_Elements_2022-03-02.csv                                     | 1     | 48        | 0                 | -                | 0.96 ms              | equal            | different                  | equal                     | equal                              | equal                             |
 | resources/RareLink/RareLink_v2_0_7.csv                                                       | 11    | 108       | 0                 | -                | 2.93 ms              | equal            | different                  | equal                     | equal                              | equal                             |
-| resources/SpyCATS/SpyCATS_2022-12-20.csv                                                     | 63    | 7958      | 0                 | -                | 218.84 ms            | equal            | different                  | equal                     | equal                              | equal                             |
-| resources/test_data/all_options_dictionary.csv                                               | 1     | 83        | 0                 | -                | 1.62 ms              | equal            | different                  | equal                     | equal                              | equal                             |
+| resources/SpyCATS/SpyCATS_2022-12-20.csv                                                     | 63    | 7958      | 0                 | -                | 223.23 ms            | equal            | different                  | equal                     | equal                              | equal                             |
+| resources/test_data/all_options_dictionary.csv                                               | 1     | 83        | 0                 | -                | 1.76 ms              | equal            | different                  | equal                     | equal                              | equal                             |
 
 ## 6. PhenX aggregates and anomalies
 
@@ -90,27 +84,27 @@
 
 | Group | Files | Forms | Questions | Median total runtime | Min total runtime | Max total runtime | Total runtime |
 | ----- | ----- | ----- | --------- | -------------------- | ----------------- | ----------------- | ------------- |
-| PhenX | 985   | 986   | 34638     | 0.83 ms              | 0.07 ms           | 23.98 ms          | 813.94 ms     |
+| PhenX | 985   | 986   | 34638     | 0.85 ms              | 0.08 ms           | 22.57 ms          | 836.45 ms     |
 
 ### Largest 5 PhenX files by question count
 
 | File                         | Questions | Forms | Median total runtime |
 | ---------------------------- | --------- | ----- | -------------------- |
-| resources/PhenX/PX230103.csv | 944       | 1     | 23.98 ms             |
-| resources/PhenX/PX290601.csv | 811       | 1     | 16.89 ms             |
-| resources/PhenX/PX290301.csv | 602       | 1     | 13.39 ms             |
-| resources/PhenX/PX751201.csv | 594       | 1     | 13.52 ms             |
-| resources/PhenX/PX150701.csv | 527       | 1     | 14.22 ms             |
+| resources/PhenX/PX230103.csv | 944       | 1     | 22.57 ms             |
+| resources/PhenX/PX290601.csv | 811       | 1     | 18.58 ms             |
+| resources/PhenX/PX290301.csv | 602       | 1     | 14.36 ms             |
+| resources/PhenX/PX751201.csv | 594       | 1     | 13.47 ms             |
+| resources/PhenX/PX150701.csv | 527       | 1     | 15.05 ms             |
 
 ### 5 slowest PhenX files
 
 | File                         | Median total runtime | Questions | Forms |
 | ---------------------------- | -------------------- | --------- | ----- |
-| resources/PhenX/PX230103.csv | 23.98 ms             | 944       | 1     |
-| resources/PhenX/PX081101.csv | 17.43 ms             | 506       | 1     |
-| resources/PhenX/PX290601.csv | 16.89 ms             | 811       | 1     |
-| resources/PhenX/PX150701.csv | 14.22 ms             | 527       | 1     |
-| resources/PhenX/PX751201.csv | 13.52 ms             | 594       | 1     |
+| resources/PhenX/PX230103.csv | 22.57 ms             | 944       | 1     |
+| resources/PhenX/PX290601.csv | 18.58 ms             | 811       | 1     |
+| resources/PhenX/PX150701.csv | 15.05 ms             | 527       | 1     |
+| resources/PhenX/PX081101.csv | 14.57 ms             | 506       | 1     |
+| resources/PhenX/PX290301.csv | 14.36 ms             | 602       | 1     |
 
 ## 7. Empty choices by field type and group
 
