@@ -1,6 +1,6 @@
 {
   "name": "@frankkramer-lab/redcap-toolkit",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "description": "Framework-agnostic TypeScript toolkit for parsing, validating, and round-tripping REDCap Data Dictionary CSV files across one or more questionnaires/instruments. Unaffiliated third-party project; REDCap is a registered trademark of Vanderbilt University.",
   "type": "commonjs",
   "main": "dist/src/index.js",
